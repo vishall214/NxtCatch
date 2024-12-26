@@ -6,14 +6,12 @@
     <title>IPL Match Winner Predictor</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <script>
-        // Function to fetch options based on input type and update the respective datalist
         function updateOptions(inputId) {
             fetch(`/get_options?type=${inputId}`)
                 .then(response => response.json())
                 .then(options => {
-                    const datalistId = `${inputId}_list`;
-                    const datalist = document.getElementById(datalistId);
-                    datalist.innerHTML = ""; // Clear previous options
+                    const datalist = document.getElementById(`${inputId}_list`);
+                    datalist.innerHTML = "";
 
                     options.forEach(option => {
                         const optionElement = document.createElement("option");
@@ -29,49 +27,49 @@
     <h1>IPL Match Winner Predictor</h1>
     <form action="/predict" method="post">
         <label for="city">City:</label>
-        <input type="text" id="city" name="city" list="city_list" oninput="updateOptions('city')"><br><br>
+        <input type="text" id="city" name="city" list="city_list" onfocus="updateOptions('city')">
         <datalist id="city_list"></datalist><br><br>
 
         <label for="venue">Venue:</label>
-        <input type="text" id="venue" name="venue" list="venue_list" oninput="updateOptions('venue')"><br><br>
+        <input type="text" id="venue" name="venue" list="venue_list" onfocus="updateOptions('venue')">
         <datalist id="venue_list"></datalist><br><br>
 
         <label for="neutral_venue">Neutral Venue (0 for No, 1 for Yes):</label>
-        <input type="number" id="neutral_venue" name="neutral_venue" list="neutral_venue_list"><br><br>
+        <input type="number" id="neutral_venue" name="neutral_venue" list="neutral_venue_list">
         <datalist id="neutral_venue_list">
             <option value="0">
             <option value="1">
         </datalist><br><br>
 
         <label for="team1">Team 1:</label>
-        <input type="text" id="team1" name="team1" list="team1_list" oninput="updateOptions('team')"><br><br>
+        <input type="text" id="team1" name="team1" list="team1_list" onfocus="updateOptions('team')">
         <datalist id="team1_list"></datalist><br><br>
 
         <label for="team2">Team 2:</label>
-        <input type="text" id="team2" name="team2" list="team2_list" oninput="updateOptions('team')"><br><br>
+        <input type="text" id="team2" name="team2" list="team2_list" onfocus="updateOptions('team')">
         <datalist id="team2_list"></datalist><br><br>
 
         <label for="toss_winner">Toss Winner:</label>
-        <input type="text" id="toss_winner" name="toss_winner" list="toss_winner_list" oninput="updateOptions('team')"><br><br>
+        <input type="text" id="toss_winner" name="toss_winner" list="toss_winner_list" onfocus="updateOptions('team')">
         <datalist id="toss_winner_list"></datalist><br><br>
 
         <label for="toss_decision">Toss Decision (bat or field):</label>
-        <input type="text" id="toss_decision" name="toss_decision" list="toss_decision_list"><br><br>
+        <input type="text" id="toss_decision" name="toss_decision" list="toss_decision_list">
         <datalist id="toss_decision_list">
             <option value="bat">
             <option value="field">
         </datalist><br><br>
 
         <label for="umpire1">Umpire 1:</label>
-        <input type="text" id="umpire1" name="umpire1" list="umpire1_list" oninput="updateOptions('umpire')"><br><br>
+        <input type="text" id="umpire1" name="umpire1" list="umpire1_list" onfocus="updateOptions('umpire')">
         <datalist id="umpire1_list"></datalist><br><br>
 
         <label for="umpire2">Umpire 2:</label>
-        <input type="text" id="umpire2" name="umpire2" list="umpire2_list" oninput="updateOptions('umpire')"><br><br>
+        <input type="text" id="umpire2" name="umpire2" list="umpire2_list" onfocus="updateOptions('umpire')">
         <datalist id="umpire2_list"></datalist><br><br>
 
         <label for="match_type">Match Type:</label>
-        <input type="text" id="match_type" name="match_type" list="match_type_list" oninput="updateOptions('match_type')"><br><br>
+        <input type="text" id="match_type" name="match_type" list="match_type_list" onfocus="updateOptions('match_type')">
         <datalist id="match_type_list"></datalist><br><br>
 
         <button type="submit">Predict</button>
