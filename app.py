@@ -147,6 +147,12 @@ if st.button('Predict Probability'):
 
         st.markdown(f"<div class='result-box'>🏏 {batting_team} - {round(win * 100)}% Win Probability</div>", unsafe_allow_html=True)
         st.markdown(f"<div class='result-box'>🛡️ {bowling_team} - {round(loss * 100)}% Win Probability</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='result-box'> Current run rate : {round(crr)}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='result-box'> Required run rate : {float(round(rrr))}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='result-box'> runs needed : {runs_left}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='result-box'> balls left : {int(balls_left)}</div>", unsafe_allow_html=True)
+
+
 
         win_percentage = int(win * 100)
         st.progress(win_percentage)
